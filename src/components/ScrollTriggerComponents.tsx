@@ -1,22 +1,27 @@
 import React, {useRef, useEffect} from 'react';
 import gsap from "gsap";
-// @ts-ignore
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-
-// @ts-ignore
 gsap.registerPlugin(ScrollTrigger);
 
-const ScrollTrigger = () => {
+const ScrollTriggerComponents = () => {
     const h1ref = useRef(null);
     useEffect(() => {
         const el = h1ref.current;
         gsap.fromTo(el, {
-            color: '#FFFFFF'
-        }, {
+            marginTop: '0px',
+            opacity: '1',
             color: 'red',
-            duration: 1,
+        }, {
+            marginTop: '100px',
+            opacity: '0',
+            color: 'white',
+            duration: 2,
             scrollTrigger: {
                 trigger: el,
+                start: 'top center',
+                markers: true,
+                scrub: true,
+                toggleActions: 'play none none none'
             }
         })
     }, []);
@@ -30,4 +35,4 @@ const ScrollTrigger = () => {
     );
 };
 
-export default React.memo(ScrollTrigger);
+export default React.memo(ScrollTriggerComponents);

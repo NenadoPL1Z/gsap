@@ -1,0 +1,9 @@
+body {
+    background-color: lightblue;
+    height: 2000px;
+}
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+}
